@@ -1,0 +1,64 @@
+{
+  "type" : "record",
+  "name" : "Measurement",
+  "namespace" : "com.datareply.multitenant",
+  "fields" : [
+    {
+      "name" : "sensor_id",
+      "type" : "string",
+      "doc" : "sensor id"
+    },
+    {
+      "name" : "sensor_type",
+      "type" : "strong",
+      "doc" : "sensor type"
+    },
+    {
+      "name" : "location",
+      "type" : "int",
+      "doc" : "location"
+    },
+    {
+      "name" : "lat",
+      "type" : "long",
+      "doc" : "latitude"
+    },
+    {
+      "name" : "lon",
+      "type" : "long",
+      "doc" : "longitude"
+    },
+    {
+      "name" : "timestamp",
+      "type" : "string",
+      "doc" : "timestamp"
+    },
+    {
+      "name" : "pressure",
+      "type" : "long",
+      "doc" : "pressure"
+    },
+    {
+      "name" : "altitude",
+      "type" : ["null", "long"],
+      "default": null,
+      "doc" : "altitude"
+    },
+    {
+      "name" : "pressure_sealevel",
+      "type" : ["null", "long"],
+      "default": null,
+      "doc" : "longitude"
+    },
+    {
+      "name" : "temperature",
+      "type" : "long",
+      "doc" : "temperature"
+    },
+    {
+      "name" : "humidity",
+      "type" : "long",
+      "doc" : "humidity"
+    }
+  ]
+}
