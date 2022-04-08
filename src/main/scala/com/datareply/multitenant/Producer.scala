@@ -27,7 +27,7 @@ object Producer {
   }
 
   def produceToKafka(values: Array[String]): Unit = {
-    Measurement.newBuilder()
+    val measurement :Measurement = Measurement.newBuilder()
       .setSensorId(values(0))
       .setSensorType(values(1))
       .setLocation(values(2).toInt)
@@ -39,5 +39,8 @@ object Producer {
       .setPressureSealevel(values(8).toLong)
       .setTemperature(values(9).toLong)
       .setHumidity(values(10).toLong)
+      .build()
+
+
   }
 }
