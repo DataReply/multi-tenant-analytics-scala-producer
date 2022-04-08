@@ -10,7 +10,7 @@
     },
     {
       "name" : "sensor_type",
-      "type" : "strong",
+      "type" : "string",
       "doc" : "sensor type"
     },
     {
