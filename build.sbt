@@ -7,9 +7,7 @@ lazy val root = (project in file(".")).
       scalaVersion := "2.12.15"
     )),
     name := "multi-tenant",
-    avroSource := new File("src/main/resources/avro"),
+    libraryDependencies += "org.apache.avro" % "avro" % "1.11.0",
+    //Compile / avroSource := (Compile / resourceDirectory).value / "avro"
   )
-
-libraryDependencies += "org.apache.avro" % "avro" % "1.11.0"
-
 
