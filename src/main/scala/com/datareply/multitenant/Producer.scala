@@ -22,8 +22,6 @@ object Producer {
 
     val data = new File("data") // TODO: Extract config
 
-    val apiEndpoint = args(0)
-
     println("Got apiEndpoint " + apiEndpoint)
 
     if (data.exists && data.isDirectory) {
@@ -33,7 +31,7 @@ object Producer {
     }
   }
 
-  def sendToApi(file: File, apiEndpoint: String): Unit = {
+  def sendToApi(file: File): Unit = {
     val bufferedSource: BufferedSource = Source.fromFile(file)
     bufferedSource.getLines()
       .map(_.split(";"))
@@ -41,7 +39,7 @@ object Producer {
       .foreach(values => {
         Thread.sleep(1)
         try {
-          sendToApi(values, apiEndpoint)
+          sendToApi(values)
         } catch {
           case e: NumberFormatException => e.printStackTrace()
         }
@@ -56,7 +54,7 @@ object Producer {
     }
   }
 
-  def sendToApi(values: Array[String], apiEndpoint: String): Unit = {
+  def sendToApi(values: Array[String]): Unit = {
     val measurementBuilder: Measurement.Builder = Measurement.newBuilder()
       .setSensorId(values(0))
       .setSensorType(values(1))
@@ -74,7 +72,7 @@ object Producer {
     val measurement: Measurement = measurementBuilder.build()
 
     val response :HttpResponse[String] = httpClient.send(HttpRequest.newBuilder()
-      .uri(URI.create(apiEndpoint + "measurements")) // API has an endpoint measurements to which you can POST // TODO: Add intelligent concatenation of url
+      .uri(URI.create(sys.env.get("OLAP_API_ENDPOINT") + "measurements")) // API has an endpoint measurements to which you can POST // TODO: Add intelligent concatenation of url
       .header("Content-Type", "application/json")
       .POST(BodyPublishers.ofString(measurement.toString))
       .build(), BodyHandlers.ofString())

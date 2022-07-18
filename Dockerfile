@@ -10,5 +10,5 @@ COPY . .
 RUN /ops/sbt/bin/sbt --version
 RUN /ops/sbt/bin/sbt assembly
 
-ENTRYPOINT ["java", "-jar", "target/scala-2.12/producer.jar", "http://localhost:9001/"]
+ENTRYPOINT ["java", "-jar", "target/scala-2.12/producer.jar"]
 # TODO: Make endpoint an env var configurable through helm instead
