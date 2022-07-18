@@ -22,12 +22,12 @@ object Producer {
 
     val data = new File("data") // TODO: Extract config
 
-    println("Got apiEndpoint " + apiEndpoint)
+    println("Got apiEndpoint ")
 
     if (data.exists && data.isDirectory) {
       data.listFiles()
         .filter(_.isFile)
-        .foreach(file => sendToApi(file, apiEndpoint))
+        .foreach(file => sendToApi(file))
     }
   }
 
