@@ -20,12 +20,12 @@
     },
     {
       "name" : "lat",
-      "type" : "long",
+      "type" : "float",
       "doc" : "latitude"
     },
     {
       "name" : "lon",
-      "type" : "long",
+      "type" : "float",
       "doc" : "longitude"
     },
     {
@@ -35,7 +35,7 @@
     },
     {
       "name" : "pressure",
-      "type" : "long",
+      "type" : "float",
       "doc" : "pressure"
     },
     {
@@ -52,12 +52,12 @@
     },
     {
       "name" : "temperature",
-      "type" : "long",
+      "type" : "float",
       "doc" : "temperature"
     },
     {
       "name" : "humidity",
-      "type" : "long",
+      "type" : "float",
       "doc" : "humidity"
     }
   ]
